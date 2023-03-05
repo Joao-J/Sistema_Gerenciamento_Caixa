@@ -13,9 +13,51 @@ class main:
 
 	def consultar():
 		for i in db.bd:
-			print('id: ',(db.bd.index(i)+1),'\tPRODUTO: ',i['Nome'],'   \tQUANTIDADE: ',i['Quantidade'],'\tVALOR: ',i['Valor'])
+			print('id: ',(db.bd.index(i)+1),'\tPRODUTO: ',i['Nome'],'   \tQUANTIDADE: ',i['Quantidade'],'   \tVALOR: ',i['Valor'])
 		input('\nPress ENTER for continue\n')
-		print()
+
+	def cadastrar():
+		produto = {'Nome':'','Quantidade':0,'Valor':0.0}
+		textos = ['informe o nome do produto: ','Informe a quantidade de produto: ','Informe o valor: ']
+		tentativas = 3
+		infor = []
+		for i, key in enumerate(produto.keys()):
+
+			while True:
+				if tentativas == 0:
+					break
+				try:
+					produto[key] = type(produto[key])(input(textos[i]))
+					tentativas = 3
+					break
+				except:
+					print('Tipo de dado não condiz com o esperado')
+					while True:
+						if tentativas == 0:
+							break
+						try:
+							x = int(input('Vamos tentar novamente: 1-Sim 2-Não'))
+							if x == 1:
+								break
+							elif x == 2:
+								tentativas = 0
+								break
+							else:
+								print('Opção invalida')
+								tentativas -= 1
+								if tentativas == 0:
+									break
+						except:
+							if tentativas >= 1:
+								print('Opção invalida. Tentativas restantes: ' + str(tentativas))
+								tentativas -= 1
+		if tentativas != 0:
+			b_d.update(produto)
+			print('Produto Cadastrado')
+		else:
+			print('Cancelado')
+
+		input('\nPress ENTER for continue\n')
 
 	def __init__(self):
 		while True:
@@ -32,15 +74,15 @@ class main:
 			main.clear()
 			if e == 1:
 				main.consultar()
-			#elif e == 2:
-
+			elif e == 2:
+				main.cadastrar()
 			#elif e == 3:
 
 			#elif e == 4:
 			elif e == 0:
 				break
 
-	def cadastrar():
+	def cadastrari():
 		#b = banco_dados
 		#b.importar()
 		#print(b.update({'Nome':'maria','Quantidade':2,'Valor':2.80}))
