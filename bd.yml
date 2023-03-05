@@ -1,3 +1,9 @@
 - Nome: maria
   Quantidade: 2
   Valor: 2.8
+- Nome: ana
+  Quantidade: 9
+  Valor: 5.9
+- Nome: "Jo\xE3o"
+  Quantidade: 9
+  Valor: 8.0
