@@ -12,6 +12,7 @@ class main:
 			os.system('cls')
 
 	def consultar():
+		print('CONSULTAR\n')
 		for i in db.bd:
 			print('id: ',(db.bd.index(i)+1),'\tPRODUTO: ',i['Nome'],'   \tQUANTIDADE: ',i['Quantidade'],'   \tVALOR: ',i['Valor'])
 		input('\nPress ENTER for continue\n')
@@ -21,8 +22,8 @@ class main:
 		textos = ['informe o nome do produto: ','Informe a quantidade de produto: ','Informe o valor: ']
 		tentativas = 3
 		infor = []
+		print('CADASTRO\n')
 		for i, key in enumerate(produto.keys()):
-
 			while True:
 				if tentativas == 0:
 					break
@@ -59,6 +60,43 @@ class main:
 
 		input('\nPress ENTER for continue\n')
 
+
+	def delet():
+		t = True
+		while t:
+			try:
+				print('DELETE\n')
+				x = int(input('1- deletar por id 2- deletar onde 3- deletar tudo\n'))
+				values = 0
+				if x == 1:
+					try:
+						op = int(input('Listar produtos 1- Sim / 2- Não\n'))
+						if op == 1:
+							main.consultar()
+						elif op == 2:
+							break
+						else:
+							print('Opção invalida')
+					except:
+						print('Opção invalida')
+						t = False
+						break
+					try:
+						values = int(input('Digite o id: '))
+					except:
+						t = False
+						break
+					b_d.delet('id,' + str(values))
+					print('Item deletado')
+					input('\nPress ENTER for continue\n')
+					t = False
+				elif x == 2: #Não esquecer de terminar 
+					b_d.delet()
+				elif x == 3:
+					b_d.delet('*')
+			except:
+				print('')
+
 	def __init__(self):
 		while True:
 			main.clear()
@@ -66,7 +104,7 @@ class main:
 			print(x)
 			e = ''
 			try:
-				e = int(input('MENU\n1-consultar\n2-cadastrar\n3-modificar\n0-SAIR\n'+x+'\n'))
+				e = int(input('MENU\n1-consultar\n2-cadastrar\n3-modificar\n4-deletar\n0-SAIR\n'+x+'\n'))
 			except:
 				print('opção invalida')
 				input('Press ENTER for continue\n')
@@ -78,7 +116,8 @@ class main:
 				main.cadastrar()
 			#elif e == 3:
 
-			#elif e == 4:
+			elif e == 4:
+				main.delet()
 			elif e == 0:
 				break
 

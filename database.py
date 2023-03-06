@@ -20,7 +20,7 @@ class banco_dados:
 		with open('bd.yml','w') as file:
 			yaml.dump(bd,file)
 		print('banco de dados: Atualizado')
-		return(bd)
+		return
 
 	def delet(value):
 		global bd
@@ -28,10 +28,13 @@ class banco_dados:
 			bd = []
 		else:
 			onde,valor = value.split(',')
-			for i in bd:
-				if i[onde] == valor:
-					bd.remove(i)
-		print(banco_dados.update(None))
+			if onde == 'id':
+				bd.remove(bd[int(valor)-1])
+			else:
+				for i in bd:
+					if i[onde] == valor:
+						bd.remove(i)
+		banco_dados.update(None)
 
 	def update_values(value):
 		global bd
