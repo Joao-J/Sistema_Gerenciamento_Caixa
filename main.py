@@ -65,9 +65,14 @@ class main:
 		t = True
 		while t:
 			try:
+				clear()
 				print('DELETE\n')
-				x = int(input('1- deletar por id 2- deletar onde 3- deletar tudo\n'))
+				x = int(input('1- deletar por id 2- deletar onde 3- deletar tudo 0- CANCELAR\n'))
 				values = 0
+				if 0 > x >= 4:
+					print('Opção invalida')
+					input('\nPress ENTER for continue\n')
+					break
 				if x == 1:
 					try:
 						op = int(input('Listar produtos 1- Sim / 2- Não\n'))
@@ -94,6 +99,9 @@ class main:
 					b_d.delet()
 				elif x == 3:
 					b_d.delet('*')
+				elif x == 0:
+					t = false
+					break
 			except:
 				print('')
 
