@@ -50,7 +50,7 @@ class main:
 									break
 						except:
 							if tentativas >= 1:
-								print('Opção invalida. Tentativas restantes: ' + str(tentativas))
+								print(f'Opção invalida. Tentativas restantes: {tentativas}')
 								tentativas -= 1
 		if tentativas != 0:
 			b_d.update(produto)
@@ -104,7 +104,7 @@ class main:
 			print(x)
 			e = ''
 			try:
-				e = int(input('MENU\n1-consultar\n2-cadastrar\n3-modificar\n4-deletar\n0-SAIR\n'+x+'\n'))
+				e = int(input(f'MENU\n1-consultar\n2-cadastrar\n3-modificar\n4-deletar\n0-SAIR\n{x}\n'))
 			except:
 				print('opção invalida')
 				input('Press ENTER for continue\n')
@@ -122,13 +122,15 @@ class main:
 				break
 
 	def cadastrari():
-		#b = banco_dados
-		#b.importar()
-		#print(b.update({'Nome':'maria','Quantidade':2,'Valor':2.80}))
-		#print(b.update({'Nome':'ana','Quantidade':5,'Valor':5.90}))
-		#print(b.update({'Nome':'João','Quantidade':5,'Valor':8.00}))
-		#b.delet('*')
-		#b.update_values('1,Nome,maria')
+		'''
+		b = banco_dados
+		b.importar()
+		print(b.update({'Nome':'maria','Quantidade':2,'Valor':2.80}))
+		print(b.update({'Nome':'ana','Quantidade':5,'Valor':5.90}))
+		print(b.update({'Nome':'João','Quantidade':5,'Valor':8.00}))
+		b.delet('*')
+		b.update_values('1,Nome,maria')
 		b.update_values('Quantidade,5,9')
+		'''
 
 main()
