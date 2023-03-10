@@ -105,6 +105,8 @@ class main:
 			e = ''
 			try:
 				e = int(input(f'MENU\n1-consultar\n2-cadastrar\n3-modificar\n4-deletar\n0-SAIR\n{x}\n'))
+				if  0 > e >= 5:
+					raise
 			except:
 				print('opção invalida')
 				input('Press ENTER for continue\n')
@@ -132,5 +134,5 @@ class main:
 		b.update_values('1,Nome,maria')
 		b.update_values('Quantidade,5,9')
 		'''
-
+		print(':D')
 main()
