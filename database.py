@@ -22,7 +22,7 @@ class banco_dados:
 		print('banco de dados: Atualizado')
 		return
 
-	def delet(value):
+	def delet(value = '*'):
 		global bd
 		if value == '*':
 			bd = []

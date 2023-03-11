@@ -93,7 +93,7 @@ class main:
 				elif x == 2: #Não esquecer de terminar 
 					b_d.delet()
 				elif x == 3:
-					b_d.delet('*')
+					b_d.delet()
 			except:
 				print('')
 
