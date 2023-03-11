@@ -50,7 +50,7 @@ class main:
 									break
 						except:
 							if tentativas >= 1:
-								print(f'Opção invalida. Tentativas restantes: {tentativas}')
+								print('Opção invalida. Tentativas restantes: ' + str(tentativas))
 								tentativas -= 1
 		if tentativas != 0:
 			b_d.update(produto)
@@ -65,14 +65,9 @@ class main:
 		t = True
 		while t:
 			try:
-				clear()
 				print('DELETE\n')
-				x = int(input('1- deletar por id 2- deletar onde 3- deletar tudo 0- CANCELAR\n'))
+				x = int(input('1- deletar por id 2- deletar onde 3- deletar tudo\n'))
 				values = 0
-				if 0 > x >= 4:
-					print('Opção invalida')
-					input('\nPress ENTER for continue\n')
-					break
 				if x == 1:
 					try:
 						op = int(input('Listar produtos 1- Sim / 2- Não\n'))
@@ -98,14 +93,7 @@ class main:
 				elif x == 2: #Não esquecer de terminar 
 					b_d.delet()
 				elif x == 3:
-<<<<<<< HEAD
 					b_d.delet()
-=======
-					b_d.delet('*')
-				elif x == 0:
-					t = false
-					break
->>>>>>> a1becfbd774f7b02ec7f7cebb66502f8878201fd
 			except:
 				print('')
 
@@ -116,9 +104,7 @@ class main:
 			print(x)
 			e = ''
 			try:
-				e = int(input(f'MENU\n1-consultar\n2-cadastrar\n3-modificar\n4-deletar\n0-SAIR\n{x}\n'))
-				if  0 > e >= 5:
-					raise
+				e = int(input('MENU\n1-consultar\n2-cadastrar\n3-modificar\n4-deletar\n0-SAIR\n'+x+'\n'))
 			except:
 				print('opção invalida')
 				input('Press ENTER for continue\n')
@@ -136,15 +122,13 @@ class main:
 				break
 
 	def cadastrari():
-		'''
-		b = banco_dados
-		b.importar()
-		print(b.update({'Nome':'maria','Quantidade':2,'Valor':2.80}))
-		print(b.update({'Nome':'ana','Quantidade':5,'Valor':5.90}))
-		print(b.update({'Nome':'João','Quantidade':5,'Valor':8.00}))
-		b.delet('*')
-		b.update_values('1,Nome,maria')
+		#b = banco_dados
+		#b.importar()
+		#print(b.update({'Nome':'maria','Quantidade':2,'Valor':2.80}))
+		#print(b.update({'Nome':'ana','Quantidade':5,'Valor':5.90}))
+		#print(b.update({'Nome':'João','Quantidade':5,'Valor':8.00}))
+		#b.delet('*')
+		#b.update_values('1,Nome,maria')
 		b.update_values('Quantidade,5,9')
-		'''
-		print(':D')
+
 main()
